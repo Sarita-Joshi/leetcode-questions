@@ -5,11 +5,10 @@ class Solution:
             change_sign = True
             x = -1*x
         
-        res = int(str(x)[::-1])
-        # res = 0
-        # while x !=0:
-        #     res = res * 10 + x%10
-        #     x = x//10
+        res = 0
+        while x !=0:
+            res = res * 10 + x%10
+            x = x//10
             
         
         if res > 2**31-1:
