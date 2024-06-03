@@ -6,14 +6,11 @@ class Solution:
         startCity = 0 
         totalGas = 0
         for i in range(len(gas)):
-            totalGas += gas[i]
-            if totalGas < cost[i]:
+            totalGas += gas[i] - cost[i]
+            if totalGas < 0:
                 startCity = i+1
                 totalGas=0
-            else:
-                totalGas -= cost[i]
             
-        
         if startCity >= len(gas):
             return -1
         
