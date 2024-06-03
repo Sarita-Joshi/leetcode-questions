@@ -1,17 +1,19 @@
 import re
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        s = re.sub("[^a-z0-9]", "", s.lower())
-        n = len(s)
-        mid = n // 2
-        if n % 2 == 1:
-            for i in range(mid+1):
-                print(s[mid-i] , s[mid+i])
-                if s[mid-i] != s[mid+i]:
-                    return False
-        else:
-            for i in range(mid):
-                if s[mid-1-i] != s[mid+i]:
-                    return False
         
+        l=0
+        r=len(s)-1
+        
+        while l < r:
+            if not s[l].isalnum():
+                l+=1
+            elif not s[r].isalnum():
+                r-=1
+            elif s[l].lower()==s[r].lower():
+                l+=1
+                r-=1
+            else:
+                return False
+            
         return True
