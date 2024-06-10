@@ -2,10 +2,12 @@ import re
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         
-        l=0
-        r=len(s)-1
+        l = 0
+        r = len(s) - 1
+        
         
         while l < r:
+            
             if not s[l].isalnum():
                 l+=1
             elif not s[r].isalnum():
@@ -15,5 +17,5 @@ class Solution:
                 r-=1
             else:
                 return False
-            
+        
         return True
