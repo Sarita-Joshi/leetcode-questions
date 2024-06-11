@@ -1,10 +1,7 @@
 class Solution:
     def isHappy(self, n: int) -> bool:
         
-        res = []
-        
-        while n != 1 or n not in res:
-            res.append(n)
+        while n != 1:
             temp = 0
             while n!=0:
                 temp += (n % 10) ** 2
