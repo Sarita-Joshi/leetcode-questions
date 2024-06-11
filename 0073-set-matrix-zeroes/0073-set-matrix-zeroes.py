@@ -9,6 +9,7 @@ class Solution:
         rows = []
         cols = []
         
+        
         for i in range(m):
             for j in range(n):
                 if matrix[i][j] == 0:
@@ -21,6 +22,6 @@ class Solution:
                 if i in rows or j in cols:
                     matrix[i][j] = 0
         
-        return matrix
+        return
                         
                     
