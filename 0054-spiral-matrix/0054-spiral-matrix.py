@@ -9,7 +9,7 @@ class Solution:
         
         
         
-        directions = [(0, 1),(1, 0), (0, -1), (-1, 0)]
+        directions = ((0, 1),(1, 0), (0, -1), (-1, 0))
         curdir = 0
         m, n = len(matrix), len(matrix[0])
         i,j=0,0
