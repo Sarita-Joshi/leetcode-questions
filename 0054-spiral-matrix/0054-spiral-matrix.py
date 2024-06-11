@@ -14,6 +14,7 @@ class Solution:
         for _ in range(m*n):
             if i>=m or j>=n or i<0 or j<0 or matrix[i][j] == -101:
                 break
+                
             res.append(matrix[i][j])
             matrix[i][j] = -101
             new_i = i + directions[curdir][0]
