@@ -7,14 +7,11 @@ class Solution:
         if n==1:
             return [m[0] for m in matrix]
         
-        
-        
-        directions = ((0, 1),(1, 0), (0, -1), (-1, 0))
-        curdir = 0
-        m, n = len(matrix), len(matrix[0])
-        i,j=0,0
         res = []
-        for k in range(m*n):
+        directions = ((0, 1),(1, 0), (0, -1), (-1, 0))
+        i, j, curdir = 0, 0, 0
+        
+        for _ in range(m*n):
             if i>=m or j>=n or i<0 or j<0 or matrix[i][j] == -101:
                 break
             res.append(matrix[i][j])
