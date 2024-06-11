@@ -15,21 +15,20 @@ class Solution:
         i,j=0,0
         res = []
         for k in range(m*n):
+            if i>=m or j>=n or i<0 or j<0 or matrix[i][j] == -101:
+                break
             res.append(matrix[i][j])
             matrix[i][j] = -101
             new_i = i + directions[curdir][0]
             new_j = j + directions[curdir][1]
             
             if new_i>=m or new_j>=n or new_i<0 or new_j<0 or matrix[new_i][new_j] == -101:
-                
+
                 curdir = (curdir + 1) % 4
                 new_i = i + directions[curdir][0]
                 new_j = j + directions[curdir][1]
                 
             i,j = new_i, new_j
-            
-            if matrix[i][j]==-101:
-                break
                 
         return res
             
