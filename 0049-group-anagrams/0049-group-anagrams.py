@@ -7,7 +7,7 @@ class Solution:
         res = defaultdict(list)
         
         for s in strs:
-            res[tuple(sorted(s))].append(s)
+            res[''.join(sorted(s))].append(s)
         
         return list(res.values())
             
