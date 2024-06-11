@@ -17,9 +17,7 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 neighbors = get_neighbors(i,j)
-                if neighbors<2 and board[i][j]==1:
-                    change_state.append((i,j,0))
-                elif neighbors>3 and board[i][j]==1:
+                if neighbors not in (2,3) and board[i][j]==1:
                     change_state.append((i,j,0))
                 elif neighbors==3 and board[i][j]==0:
                     change_state.append((i,j,1))
