@@ -9,14 +9,7 @@ class Solution:
         
         
         
-        directions = {
-            'right': (0, 1),
-            'down': (1, 0),
-            'left': (0, -1),
-            'up': (-1, 0),
-        }
-        
-        dirlist = [d for d in directions.keys()]
+        directions = [(0, 1),(1, 0), (0, -1), (-1, 0)]
         curdir = 0
         m, n = len(matrix), len(matrix[0])
         i,j=0,0
@@ -24,14 +17,14 @@ class Solution:
         for k in range(m*n):
             res.append(matrix[i][j])
             matrix[i][j] = -101
-            new_i = i+directions[dirlist[curdir]][0]
-            new_j = j+directions[dirlist[curdir]][1]
+            new_i = i + directions[curdir][0]
+            new_j = j + directions[curdir][1]
             
             if new_i>=m or new_j>=n or new_i<0 or new_j<0 or matrix[new_i][new_j] == -101:
                 
                 curdir = (curdir + 1) % 4
-                new_i = i+directions[dirlist[curdir]][0]
-                new_j = j+directions[dirlist[curdir]][1]
+                new_i = i + directions[curdir][0]
+                new_j = j + directions[curdir][1]
                 
             i,j = new_i, new_j
             
