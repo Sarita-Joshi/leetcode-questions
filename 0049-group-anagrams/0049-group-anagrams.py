@@ -9,6 +9,6 @@ class Solution:
         for s in strs:
             res[tuple(sorted(s))].append(s)
         
-        return [v for v in res.values()]
+        return list(res.values())
             
             
