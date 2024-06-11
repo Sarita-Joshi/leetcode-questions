@@ -16,14 +16,11 @@ class Solution:
                         rows.append(i)
                     if j not in cols:
                         cols.append(j)
-        for i in rows:
-            for j in range(n):
-                matrix[i][j] = 0
-                
         for i in range(m):
-            for j in cols:
-                matrix[i][j] = 0
-                        
+            for j in range(n):
+                if i in rows or j in cols:
+                    matrix[i][j] = 0
+        
         return matrix
                         
                     
