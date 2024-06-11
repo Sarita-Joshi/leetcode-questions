@@ -1,74 +1,31 @@
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         
-        rows = collections.defaultdict(list)
-        cols = collections.defaultdict(list)
-        boxes = collections.defaultdict(list)
+#         rows = collections.defaultdict(list)
+#         cols = collections.defaultdict(list)
+#         boxes = collections.defaultdict(list)
         
     
+#         for i in range(9):
+#             for j in range(9):
+#                 cell = board[i][j]
+#                 if cell == ".":
+#                     continue
+                    
+#                 if cell in rows[i] or cell in cols[j] or cell in boxes[(i//3,j//3)]:
+#                     return False
+                
+#                 rows[i].append(cell) 
+#                 cols[j].append(cell)
+#                 boxes[(i//3,j//3)].append(cell)
+                
+#         return True
+
+        res = []
         for i in range(9):
             for j in range(9):
-                cell = board[i][j]
-                if cell == ".":
-                    continue
-                    
-                if cell in rows[i] or cell in cols[j] or cell in boxes[(i//3,j//3)]:
-                    return False
+                element = board[i][j]
+                if element != '.':
+                    res += [(i, element), (element, j), (i // 3, j // 3, element)]
+        return len(res) == len(set(res))
                 
-                rows[i].append(cell) 
-                cols[j].append(cell)
-                boxes[(i//3,j//3)].append(cell)
-                
-        return True
-                
-                
-#         # check rows
-#         for row in board:
-#             numbers = collections.defaultdict(int)
-#             for cell in row:
-#                 if cell != ".":
-#                     numbers[cell] += 1
-#                 if numbers[cell] > 1:
-#                     return False
-#         # print('Rows checks')
-#         # check columns
-#         for i in range(9):
-#             numbers = collections.defaultdict(int)
-#             for j in range(9):
-#                 cell = board[j][i]
-#                 if cell != ".":
-#                     numbers[cell] += 1
-#                 if numbers[cell] > 1:
-#                     return False
-                
-#         # print('Cols checks')
-        
-#         for i in range(9):
-#             if i % 3 ==0:
-#                 # print('3 box checking')
-#                 numbers1 = collections.defaultdict(int)
-#                 numbers2 = collections.defaultdict(int)
-#                 numbers3 = collections.defaultdict(int)
-            
-#             for j in range(0,3):
-#                 cell = board[j][i]
-#                 if cell != ".":
-#                     numbers1[cell] += 1
-#                 if numbers1[cell] > 1:
-#                     return False
-            
-#             for j in range(3,6):
-#                 cell = board[j][i]
-#                 if cell != ".":
-#                     numbers2[cell] += 1
-#                 if numbers2[cell] > 1:
-#                     return False
-            
-#             for j in range(6,9):
-#                 cell = board[j][i]
-#                 if cell != ".":
-#                     numbers3[cell] += 1
-#                 if numbers3[cell] > 1:
-#                     return False
-
-#         return True
