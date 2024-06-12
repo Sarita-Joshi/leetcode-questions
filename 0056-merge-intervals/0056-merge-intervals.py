@@ -4,14 +4,17 @@ class Solution:
             return intervals
         intervals = sorted(intervals)
         i = 1
-        while i < len(intervals):
-            if intervals[i][0] <= intervals[i-1][1]:
-                intervals[i] = [intervals[i-1][0],max(intervals[i-1][1], intervals[i][1])]
-                intervals.pop(i-1)
-            else:
-                i+=1
+        prev = intervals[0]
+        res = []
         
-        return intervals     
+        for i in range(1, len(intervals)):
+            if intervals[i][0] <= prev[1]:
+                prev = [prev[0], max(prev[1], intervals[i][1])]
+            else:
+                res.append(prev)
+                prev = intervals[i]
+        res.append(prev)
+        return res  
         
         
         
