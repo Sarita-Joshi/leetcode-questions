@@ -2,6 +2,7 @@ class Solution:
     def summaryRanges(self, nums: List[int]) -> List[str]:
         if nums == []:
             return nums
+        
         if len(nums) == 1:
             return [str(nums[0])]
         
