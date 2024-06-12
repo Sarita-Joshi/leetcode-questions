@@ -11,7 +11,7 @@ class Solution:
         while end < len(nums):
             while end+1 < len(nums) and nums[end+1] == nums[end] + 1:
                 end += 1
-            if end-start == 0:
+            if end == start:
                 res.append(str(nums[end]))
             else:
                 res.append(f"{nums[start]}->{nums[end]}")
