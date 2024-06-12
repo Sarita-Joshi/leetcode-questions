@@ -8,7 +8,7 @@ class Solution:
         res = []
         start, end = 0, 0
         while end < len(nums):
-            while end+1 < len(nums) and nums[end+1] == nums[end] + 1:
+            while nums[end] + 1 in nums:
                 end += 1
             if end-start == 0:
                 res.append(str(nums[end]))
