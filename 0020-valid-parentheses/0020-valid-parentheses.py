@@ -3,20 +3,21 @@ class Solution:
         if len(s)%2==1:
             return False
         
-        stack = [None]
+        stack = []
         
         for i in s:
             if i in ("(", "[", "{"):
                 stack.append(i)
-            elif i==')' and stack[-1]!='(':
-                return False
-            elif i=='}' and stack[-1]!='{':
-                return False
-            elif i==']' and stack[-1]!='[':
-                return False
-            else:
+            elif i==')' and stack and stack[-1]=='(':
                 stack.pop()
+            elif i=='}' and stack and stack[-1]=='{':
+                stack.pop()
+            elif i==']' and stack and stack[-1]=='[':
+                stack.pop()
+            else:
+                return False
+                
         
-        if stack!=[None]:
+        if stack:
             return False
         return True
