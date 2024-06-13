@@ -3,14 +3,14 @@ class Solution:
         if len(path)==1:
             return path
         
-        path= path.strip('/').split('/')
+        path= re.sub('//+', "/", path).strip('/').split('/')
         dirs = []
         for i in path:
 
-            if i == '' or i=='.':
+            if i=='.':
                 continue
-            if i == '..':
-                if len(dirs):
+            elif i == '..':
+                if dirs:
                     dirs.pop()
             else:
                 dirs.append(i)
