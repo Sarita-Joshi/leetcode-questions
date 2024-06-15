@@ -15,8 +15,6 @@ class Solution:
             data.add(curr.val)
             curr = curr.next
         
-        print(data, dups)
-        
         dummy = ListNode(0,head)
         prev = dummy
         curr = prev.next
