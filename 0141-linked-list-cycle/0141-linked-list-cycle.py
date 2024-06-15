@@ -14,5 +14,6 @@ class Solution:
             if fast == slow:
                 return True
         
+        
         return False
         
