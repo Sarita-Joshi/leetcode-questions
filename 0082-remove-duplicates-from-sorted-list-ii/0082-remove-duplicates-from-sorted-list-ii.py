@@ -25,7 +25,6 @@ class Solution:
             curr = curr.next
         
         prev.next = curr
-        
         return dummy.next
                 
                 
