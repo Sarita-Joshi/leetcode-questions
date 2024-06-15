@@ -7,12 +7,12 @@ class Solution:
     def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
         
         curr = head
-        data = set()
-        dups = set()
+        data = []
+        dups = []
         while curr:
             if curr.val in data:
-                dups.add(curr.val)
-            data.add(curr.val)
+                dups.append(curr.val)
+            data.append(curr.val)
             curr = curr.next
         
         dummy = ListNode(0,head)
