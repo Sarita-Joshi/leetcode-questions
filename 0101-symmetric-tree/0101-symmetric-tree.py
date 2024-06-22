@@ -5,11 +5,7 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
-        if not root:
-            return True
-        
-        def sameTree(p, q):
+    def sameTree(self, p, q):
             
             if not p and not q:
                 return True
@@ -17,9 +13,13 @@ class Solution:
                 return False
             if p.val!=q.val:
                 return False
-            return sameTree(p.left,q.right) and sameTree(p.right,q.left)
+            return self.sameTree(p.left,q.right) and self.sameTree(p.right,q.left)
         
         
-        return sameTree(root.left,root.right)
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if not root:
+            return True
+        
+        return self.sameTree(root.left,root.right)
         
         
