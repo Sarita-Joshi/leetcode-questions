@@ -18,9 +18,8 @@ class Solution:
             if not root:
                 return
             inorder(root.left)
-            curr = root.val
-            best = min(best, curr - prev)
-            prev = curr
+            best = min(best, root.val - prev)
+            prev = root.val
             inorder(root.right)
         inorder(root)    
         return best
