@@ -7,19 +7,19 @@
 import numpy as np
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 0
         
-        best = 100000
-        prev = -100000
+        curr, stack,  prev, best = root, [], -10**5, 10**5
         
-        def inorder(root):
-            nonlocal best, prev
-            if not root:
-                return
-            inorder(root.left)
-            best = min(best, root.val - prev)
-            prev = root.val
-            inorder(root.right)
-        inorder(root)    
+        while stack or curr:
+            while curr:
+                stack.append(curr)
+                curr = curr.left
+            node = stack.pop()
+            best = min(best, node.val - prev)
+            curr = node.right
+            prev = node.val
+        
         return best
+            
+            
+            
