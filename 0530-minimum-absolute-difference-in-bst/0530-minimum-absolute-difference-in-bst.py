@@ -7,7 +7,6 @@
 import numpy as np
 class Solution:
     def getMinimumDifference(self, root: Optional[TreeNode]) -> int:
-        
         if not root:
             return 0
         
