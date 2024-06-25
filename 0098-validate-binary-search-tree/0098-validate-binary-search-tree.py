@@ -11,15 +11,13 @@ class Solution:
         prev = -10 ** 10
         def inorder(root):
             if not root:
-                return True
-            res = inorder(root.left)  
-            if res==False:
+                return True  
+            if inorder(root.left)==False:
                 return False
             nonlocal prev
             if prev >= root.val:
                 return False
             prev = root.val
-            res = inorder(root.right)
-            return res
+            return inorder(root.right)
             
         return inorder(root)
