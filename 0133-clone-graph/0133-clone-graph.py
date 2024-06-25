@@ -14,21 +14,19 @@ class Solution:
         
         visited = []
         q = deque([node])
-        cache = {}
+        cache = {node.val: Node(node.val, [])}
         while q:
             curr = q.popleft()
-            cache[curr.val] = (curr, Node(curr.val, []))
-            visited.append(curr.val)
+            
+            curr_clone = cache[curr.val]
 
             for n in curr.neighbors:
-                if n.val not in visited:    
+                if n.val not in cache.keys():    
+                    cache[n.val] = Node(n.val, [])
                     q.append(n)
-                    visited.append(n.val)
-                    
-        for v in visited:
-            node, newnode = cache[v][0], cache[v][1]
-            newnode.neighbors = [cache[n.val][1]  for n in node.neighbors]
-        return cache[visited[0]][1]
+                curr_clone.neighbors.append(cache[n.val])
+                
+        return cache[node.val]
                 
                 
             
