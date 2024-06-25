@@ -4,32 +4,45 @@ class Solution:
         Do not return anything, modify board in-place instead.
         """
         m, n = len(grid), len(grid[0])
-        visited = set()
+        q = deque()
         
+        for r in range(m):
+            if grid[r][0] == "O":
+                q.append((r,0))
+            if grid[r][n-1] == "O":
+                q.append((r,n-1))
+                
+        for c in range(n):
+            if grid[0][c] == "O":
+                q.append((0,c))
+            if grid[m-1][c] == "O":
+                q.append((m-1,c))
+
         def bfs(row, col):
             neighbors = ((-1,0), (0,-1), (1,0), (0,1))
             q = deque([(row,col)])
-            region = {(row,col)}
-            edge = False
             while q:
                 r,c = q.popleft()
-                if r in (0,m-1) or c in (0,n-1):
-                    edge = True
                 for i,j in neighbors:
                     i +=r
                     j +=c
-                    if 0<=i<m and 0<=j<n and grid[i][j]=="O" and (i,j) not in visited:
-                        region.add((i,j))
-                        visited.add((i,j))
+                    if 0<=i<m and 0<=j<n and grid[i][j]=="O":
+                        grid[i][j] = '#'
                         q.append((i,j))
-                        
-            if not edge:
-                for i,j in region:
-                    grid[i][j] = "X"
-                
-        for r in range(m):
-            for c in range(n):
-                if grid[r][c] == 'O' and (r,c) not in visited:
-                    visited.add((r,c))
-                    bfs(r,c)
+
+        while q:
+            r,c = q.popleft()
+            grid[r][c] = '#'
+            bfs(r,c)
+            
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j]=='O':
+                    grid[i][j] = 'X'
+                elif grid[i][j]=='#':
+                    grid[i][j] = 'O'
+        
+        
+        
+        
                     
