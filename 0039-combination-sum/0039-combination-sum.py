@@ -1,11 +1,11 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         res = set()
-        candidates.sort()
+        
         def backtrack(i, curSum, curList):
             if curSum == target:
                 res.add(tuple(curList))
-                res
+                return
             
             if curSum > target:
                 return
