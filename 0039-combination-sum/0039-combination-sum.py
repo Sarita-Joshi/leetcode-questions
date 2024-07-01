@@ -1,19 +1,19 @@
 class Solution:
     def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
         res = set()
-        
-        def backtrack(curSum, curList):
+        candidates.sort()
+        def backtrack(i, curSum, curList):
             if curSum == target:
-                res.add(tuple(sorted(curList)))
+                res.add(tuple(curList))
                 res
             
             if curSum > target:
                 return
             
-            for n in candidates:
-                
-                backtrack(curSum+n, curList + [n])
+            for j, n in enumerate(candidates):
+                if j >= i:
+                    backtrack(j, curSum+n, curList + [n])
         
-        backtrack(0, [])
+        backtrack(0, 0, [])
         return res
                 
