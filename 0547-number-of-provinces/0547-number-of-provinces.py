@@ -11,7 +11,7 @@ class Solution:
                         visited.append(c)
                         dfs(c)
 
-            print(prov)
+ 
 
         for i in range(ncities):
             if i not in visited:
